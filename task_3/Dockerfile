@@ -1,0 +1,9 @@
+FROM ubuntu:16.04
+ENV DEVOPS="<ubuntu>"
+RUN apt-get -y update
+RUN apt-get -y install apache2
+RUN echo 'Hi there, what is love?' > /var/www/html/index.html
+RUN echo 'It is just a song ...' > /var/www/html/index.html
+CMD ["/usr/sbin/apache2ctl", "-DFOREGROUND"]
+EXPOSE 80
+

@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - 3306
+
+  javaapp:
+    image: tnguyenv/javaapp:latest
+    depends_on:
+     - db
+
+  webapp:
+    image : webapp:latest
+volumes:
+  db_data: {}
+
